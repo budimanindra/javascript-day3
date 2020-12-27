@@ -14,9 +14,27 @@ const cekHariKerja = (day) => {
     })
 }
 
-cekHariKerja('minggu').then(hasil =>{
-    console.log(hasil)
+// ini adalah program untuk menjalankan fungsi cekHariKerja
+// inputan day akan menyesuaikan dengan elemen dalam array dataDay
+// jika sesuai akan menjalankan program then dan menghasilkan pesan hari senin adalah hari kerja
+// jika tidak sesuai akan menjalankan program catch dan throw error
+cekHariKerja('senin').then(hasil =>{
+    console.log(`hari ${hasil} adalah hari kerja`)
 })
 .catch((error)=>{
     console.log(error)
 })
+
+// ini adalah program untuk menjalankan fungsi trycatch
+// inputan day akan menyesuaikan dengan elemen dalam array dataDay
+// jika sesuai akan menjalankan program try dan menghasilkan hari
+// jika tidak sesuai akan menjalankan program catch dan throw error
+async function cekHariKerjaTryCatch(day) {
+    try{
+     const result = await cekHariKerja(day)
+     console.log(result)
+    } catch (error) {
+     throw error
+    }
+   }
+   cekHariKerjaTryCatch('senin')
